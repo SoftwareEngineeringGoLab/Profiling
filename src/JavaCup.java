@@ -23,7 +23,7 @@ public class JavaCup {
         else { System.out.println("NO"); }
     }
     public static void temp() {
-        ArrayList a = new ArrayList();
+        ArrayList<Integer> a = new ArrayList<>(10000 * 20000);
         for (int i = 0; i < 10000; i++)
         {
             for (int j = 0; j < 20000; j++) {
@@ -31,5 +31,6 @@ public class JavaCup {
             }
         }
     }
+
 
 }
