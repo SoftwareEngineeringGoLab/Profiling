@@ -51,3 +51,46 @@ public static void temp() {
 ![](src/images/f2.png)
 
 همانطور که میبینیم کد بهبود یافته است و لود اصلی به جای اینکه در هر عملیات add باشد به روی عملیات ساختن arraylist منتقل شده است که البته باز بهتر از حالت قبلی است.
+
+## پیاده سازی یک الگوریتم دلخواه و بهبود آن
+
+در این بخش ما الگوریتم ضرب دو ماتریس را انتخاب کردیم
+
+قطعه کد اولیه به صورت زیر است:
+
+```java
+import java.util.Random;
+
+public class MatrixMultiply {
+
+    public static void main(String[] args) {
+        int size = 1024;
+        int[][] A = new int[size][size];
+        int[][] B = new int[size][size];
+        int[][] C = new int[size][size];
+
+        Random rand = new Random();
+
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                A[i][j] = rand.nextInt(100);
+                B[i][j] = rand.nextInt(100);
+            }
+        }
+
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                for (int k = 0; k < size; k++) {
+                    C[i][j] += A[i][k] * B[k][j];
+                }
+            }
+        }
+
+        System.out.println("Multiplication complete.");
+    }
+}
+```
+
+مشکل اصلی این قطعه کد در لوپ ضرب کردن می باشد
+
+برای بهود آن از ایده زیر استفاده میکنم:
